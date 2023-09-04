@@ -9,7 +9,6 @@ from rest_framework import status
 @api_view(['GET', 'POST'])
 def customers(request):
     if request.method == 'GET':
-        raise Exception()
         data = Customer.objects.all()
         serializer = CustomerSerializer(data, many=True)
         return Response({'customers': serializer.data})
