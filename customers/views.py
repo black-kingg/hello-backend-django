@@ -5,7 +5,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
-from rest_framework_simplejwt import RefreshToken
+from rest_framework_simplejwt.tokens import RefreshToken
 
 
 @api_view(['GET', 'POST'])
@@ -47,7 +47,7 @@ def customer(request, id):
 
 
 @api_view(['POST'])
-def register():
+def register(request):
     serializer = UserSerializer(data=request.data)
     if serializer.is_valid():
         user = serializer.save()
